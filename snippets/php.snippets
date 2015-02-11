@@ -312,72 +312,57 @@ snippet app
 	App::import('${1:LibraryName}'${2:, 'ClassName'});
 
 snippet afterfil
-	/**
-	 * Controller afterFilter callback.
-	 * Called after the controller action is run and rendered.
-	 * 
-	 * @return void
-	 */
 	function afterFilter() {
-		$1
+		${1}
 	}
 
 snippet beforefil
-	/**
-	 * Controller beforeFilter callback.
-	 * Called before the controller action. 
-	 * 
-	 * @return void
-	 */
 	function beforeFilter() {
-		$1
+		${1:'code'}
+	
 	}
 
 snippet beforeren
-	/**
-	 * Controller afterFilter callback.
-	 * Called after the controller action is run, but before the view is rendered.
-	 * 
-	 * @return void
-	 */
 	function beforeRender() {
-		$1
+		${1:'code'}
 	}
 
 # Callback methods
 snippet afterfind
+	
 	function afterFind(${1:$results}) {
-		$2
+		${2:'code'}
 	}
 
 snippet aftersave
 	function afterSave(${1:$created}) {
-		$2
+		${2:'code'}
 	}
 
 snippet beforedelete
 	function beforeDelete() {
-		$1
+		${1:'code'}
 	}
 
 snippet beforefind
 	function beforeFind(${1:$queryData}) {
-		$2
+		${2:'code'}
 	}
 
 snippet beforesave
 	function beforeSave() {
-		$1
+		${1:'code'}
 	}
 
 snippet beforevalidate
 	function beforeValidate() {
-		$1
+		${1:'code'}
+	}
 	}
 
 snippet onerror
 	function onError() {
-		$1
+		${1:'code'}
 	}
 
 # Model

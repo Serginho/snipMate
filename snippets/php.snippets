@@ -212,5 +212,186 @@ snippet fun
 		${4:// code...}
 	}
 # $... = array (...)
+
+# Controllers
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});${4}
+
+snippet dela
+	$this->${1:ModelName}->deleteAll(${2:$conditions}${3: ,$cascade});
+
+snippet id=
+	$this->${1:ModelName}->id = ${2:$id};
+
+snippet save
+	$this->${1:ModelName}->save(${2:$this->data});
+
+snippet savef
+	$this->${1:ModelName}->saveField('${2:$field}', ${3:$fieldValue});
+
+snippet upa
+	$this->${1:ModelName}->updateAll(${2:$fields}${3: ,$conditions});
+
+snippet find
+	$this->${1:ModelName}->find('${2:all}'${3: ,$params});
+
+snippet findby
+	$this->${1:ModelName}->findBy${2:FieldName}(${3:$value});
+
+snippet findallby
+	$this->${1:ModelName}->findAllBy${2:FieldName}(${3:$value}));
+
+snippet field
+	$this->${1:ModelName}->field(${2:'${3:name}'}, ${4:'conditions'}, ${5:'order'});
+
+# Sessions
+snippet scheck
+	$this->Session->check('${1:Controller}.${2:key}');
+
+snippet sdel
+	$this->Session->delete('${1:Controller}.${2:key}');
+
+snippet sdes
+	$this->Session->destroy();
+
+snippet serr
+	$this->Session->error();
+
+snippet sid
+	$this->Session->id();
+
+snippet sread
+	$this->Session->read('${1:Controller}.${2:key}');
+
+snippet sres
+	$this->Session->restore();
+
+snippet sflash
+	$this->Session->setFlash('${1:message}'${2:, 'default'}${3:, $params});
+
+snippet svalid
+	$this->Session->valid();
+
+snippet swrite
+	$this->Session->write('${1:Controller}.${2:key}', '${3:value}');
+
+snippet serrhelper
+	<?php echo $this->Session->error(); ?>
+
+snippet sflashhelp
+	<?php echo $this->Session->flash(${1:'key'}); ?>
+
+snippet sreadhelp
+	<?php echo $this->Session->read('${1:key}'); ?>
+# Assert
+snippet assertE
+	$this->assertEqual(${1:$result}, ${2:$expected});
+
+snippet assertF
+	$this->assertFalse(${1:$result});
+
+snippet assertP
+	$this->assertPattern(${1:'/${2:pattern}/'}, ${3:$result});
+
+snippet assertT
+	$this->assertTrue(${1:$result})
+
+# Misc
+snippet echo 
+	<?php echo $${1:data}['${2:Model}']['${3:field}']; ?>
+snippet de
+	debug($${1:data});
+
+snippet pr
+	pr($${1:data});
+
+snippet set 
+	$this->set('${1:var}', $${2:$1});
+
+snippet app
+	App::import('${1:LibraryName}'${2:, 'ClassName'});
+
+snippet afterfil
+	/**
+	 * Controller afterFilter callback.
+	 * Called after the controller action is run and rendered.
+	 * 
+	 * @return void
+	 */
+	function afterFilter() {
+		$1
+	}
+
+snippet beforefil
+	/**
+	 * Controller beforeFilter callback.
+	 * Called before the controller action. 
+	 * 
+	 * @return void
+	 */
+	function beforeFilter() {
+		$1
+	}
+
+snippet beforeren
+	/**
+	 * Controller afterFilter callback.
+	 * Called after the controller action is run, but before the view is rendered.
+	 * 
+	 * @return void
+	 */
+	function beforeRender() {
+		$1
+	}
+
+# Callback methods
+snippet afterfind
+	function afterFind(${1:$results}) {
+		$2
+	}
+
+snippet aftersave
+	function afterSave(${1:$created}) {
+		$2
+	}
+
+snippet beforedelete
+	function beforeDelete() {
+		$1
+	}
+
+snippet beforefind
+	function beforeFind(${1:$queryData}) {
+		$2
+	}
+
+snippet beforesave
+	function beforeSave() {
+		$1
+	}
+
+snippet beforevalidate
+	function beforeValidate() {
+		$1
+	}
+
+snippet onerror
+	function onError() {
+		$1
+	}
+
+# Model
+snippet act
+	var $actsAs = array('${1:BehaviorName}'${2: => ConfigForBehavior});
+
+snippet bt
+	var $belongsTo = array('${1:Model}');
+
+snippet habtm
+	var $hasAndBelongsToMany = array('${1:Model}');
+
+snippet hm
+	var $hasMany = array('${1:Model}');
+
+snippet ho
+	var $hasOne = array('${1:Model}');

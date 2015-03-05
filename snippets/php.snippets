@@ -244,6 +244,18 @@ snippet findallby
 snippet field
 	$this->${1:ModelName}->field(${2:'${3:name}'}, ${4:'conditions'}, ${5:'order'});
 
+# Custom Controllers
+snippet reqpost
+	if($this->request->is('post')){
+		${1:Code}
+	}else{
+		$this->response->statusCode(400);
+	}
+
+snippet response
+	$this->response->statusCode(${1:200});
+	$this->response->body(json_encode(${2:'$result'});
+
 # Sessions
 snippet scheck
 	$this->Session->check('${1:Controller}.${2:key}');
@@ -312,52 +324,53 @@ snippet app
 	App::import('${1:LibraryName}'${2:, 'ClassName'});
 
 snippet afterfil
-	function afterFilter() {
+	public function afterFilter() {
 		${1}
 	}
 
+
 snippet beforefil
-	function beforeFilter() {
+	public function beforeFilter() {
 		${1:'code'}
 	
 	}
 
 snippet beforeren
-	function beforeRender() {
+	public function beforeRender() {
 		${1:'code'}
 	}
+
 
 # Callback methods
 snippet afterfind
 	
-	function afterFind(${1:$results}) {
+	public function afterFind(${1:$results}) {
 		${2:'code'}
 	}
 
 snippet aftersave
-	function afterSave(${1:$created}) {
+	public function afterSave(${1:$created}) {
 		${2:'code'}
 	}
 
 snippet beforedelete
-	function beforeDelete() {
+	public function beforeDelete() {
 		${1:'code'}
 	}
 
 snippet beforefind
-	function beforeFind(${1:$queryData}) {
+	public function beforeFind(${1:$queryData}) {
 		${2:'code'}
 	}
 
 snippet beforesave
-	function beforeSave() {
+	public function beforeSave() {
 		${1:'code'}
 	}
 
 snippet beforevalidate
-	function beforeValidate() {
+	public function beforeValidate() {
 		${1:'code'}
-	}
 	}
 
 snippet onerror
@@ -365,18 +378,23 @@ snippet onerror
 		${1:'code'}
 	}
 
+
 # Model
 snippet act
-	var $actsAs = array('${1:BehaviorName}'${2: => ConfigForBehavior});
+	public $actsAs = array('${1:BehaviorName}'${2: => ConfigForBehavior});
 
 snippet bt
-	var $belongsTo = array('${1:Model}');
+	public $belongsTo = array('${1:Model}');
 
 snippet habtm
-	var $hasAndBelongsToMany = array('${1:Model}');
+	public $hasAndBelongsToMany = array('${1:Model}');
 
 snippet hm
-	var $hasMany = array('${1:Model}');
+	public $hasMany = array('${1:Model}');
 
 snippet ho
-	var $hasOne = array('${1:Model}');
+	public $hasOne = array('${1:Model}');
+
+snippet sqllog
+	$log = $this->${1:Model}->getDataSource()->getLog(false, false);       
+	debug($log);
